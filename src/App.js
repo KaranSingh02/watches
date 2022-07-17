@@ -3,10 +3,12 @@ import './App.css';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import Login from './Components/login/login';
 import Register from './Components/login/register';
+import NavbarPage from './Components/navbar';
 
 function App() {
   return (
     <div className="App">
+      <NavbarPage/ >
        <BrowserRouter>
                   <Switch>
                     {/* { !check && <Route exact path='/' component={Register} /> }
