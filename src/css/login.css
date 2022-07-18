@@ -1,0 +1,48 @@
+.login_background{
+    background-color: rgba(35, 35, 35, 0.7);
+}
+
+.login_left_col {
+    background-image: url("../images/watch_login.jpg");
+    background-size: contain;
+}
+
+.login_right_col{
+    background-color: white;
+}
+
+.login_row{
+    padding-top: 40px;
+}
+
+.login_heading{
+    font-family: cursive;
+    padding-top: 80px;
+    color: rgb(103, 103, 103);
+}
+
+.login_heading2{
+    color: grey;
+    font-family: cursive;
+    font-size: medium;
+}
+
+.login_button{
+    border-radius: 10px;
+}
+
+.login_or{
+    font-size: x-small;
+    color: grey;
+    font-family: cursive;
+}
+
+.login_form_div{
+    padding: 0 70px 0 70px;
+}
+
+.google_action{
+    cursor: pointer;
+    color: grey;
+    font-family: cursive;
+}
