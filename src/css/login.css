@@ -1,5 +1,5 @@
 .login_background{
-    background-color: rgba(35, 35, 35, 0.7);
+    background-color: rgba(35, 35, 35, 0.5);
 }
 
 .login_left_col {
@@ -9,6 +9,10 @@
 
 .login_right_col{
     background-color: white;
+}
+
+.login_container{
+    padding-bottom: 60px;
 }
 
 .login_row{
@@ -39,10 +43,4 @@
 
 .login_form_div{
     padding: 0 70px 0 70px;
-}
-
-.google_action{
-    cursor: pointer;
-    color: grey;
-    font-family: cursive;
 }

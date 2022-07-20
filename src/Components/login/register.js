@@ -2,8 +2,7 @@ import {React, useEffect, useState} from 'react';
 import { MDBContainer, MDBRow, MDBCol, MDBInput } from "mdbreact";
 import '../../css/login.css';
 import Button from '@mui/material/Button';
-import GoogleIcon from '@mui/icons-material/Google';
-
+import GoogleLogin from 'react-google-login';
 
 const Login = () => {
     const [username,setUsername] = useState();
@@ -12,7 +11,7 @@ const Login = () => {
     const [password2,setPassword2] = useState();
 
     const handleSubmit = () => {
-      if(password != password2){
+      if(password !== password2){
         alert("Passwords dont match");
       }
       else{
@@ -22,11 +21,19 @@ const Login = () => {
           'password': password
         }
       }
-    }
+    };
+
+    const responseGoogle = (response) => {
+      // console.log(response);
+      // var res = response.profileObj;
+      console.log("Hello");
+      // debugger;
+      // this.signup(response);
+          };
 
     return (
       <div className='login_background'>
-      <MDBContainer>
+      <MDBContainer className='login_container'>
       <MDBRow className='login_row'>
         <MDBCol className='login_left_col' md="6">
           
@@ -78,7 +85,13 @@ const Login = () => {
             </div><br/>
           </form>
           <p className='text-center login_or'>------------ or ------------</p>
-          <p className='text-center google_action'><GoogleIcon />&nbsp; Sign In With Google</p>
+          <div className='text-center'>
+          <GoogleLogin 
+            clientId="788786912619-k4tb19vgofvmn97q1vsti1u8fnf8j6pa.apps.googleusercontent.com"
+            onSuccess={responseGoogle}
+            onFailure={responseGoogle} >
+          </GoogleLogin>
+          </div><br />
           <p className='text-center login_heading2'>New to Luxerange? <a href='/login'>Login</a></p>
         </MDBCol>
       </MDBRow>

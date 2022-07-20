@@ -2,7 +2,7 @@ import {React, useEffect, useState} from 'react';
 import { MDBContainer, MDBRow, MDBCol, MDBInput } from "mdbreact";
 import '../../css/login.css';
 import Button from '@mui/material/Button';
-import GoogleIcon from '@mui/icons-material/Google';
+import GoogleLogin from 'react-google-login';
 
 
 const Login = () => {
@@ -14,11 +14,19 @@ const Login = () => {
         'username': username,
         'password': password
       }
-    }
+    };
+
+    const responseGoogle = (response) => {
+      // console.log(response);
+      // var res = response.profileObj;
+      console.log("Hello");
+      // debugger;
+      // this.signup(response);
+          }
 
     return (
       <div className='login_background'>
-      <MDBContainer>
+      <MDBContainer className='login_container'>
       <MDBRow className='login_row'>
         <MDBCol className='login_left_col' md="6">
           
@@ -29,7 +37,7 @@ const Login = () => {
             <p className="h5 text-center mb-4 login_heading2">Welcome to Luxerange</p><br/><br/>
             <div className="grey-text login_form_div">
               <MDBInput
-                label="Type your email"
+                label="Type your email or username"
                 icon="envelope"
                 group
                 type="email"
@@ -52,7 +60,13 @@ const Login = () => {
             </div><br/><br/>
           </form>
           <p className='text-center login_or'>------------ or ------------</p><br />
-          <p className='text-center google_action'><GoogleIcon />&nbsp; Sign In With Google</p><br/>
+          <div className='text-center'>
+          <GoogleLogin 
+            clientId="788786912619-k4tb19vgofvmn97q1vsti1u8fnf8j6pa.apps.googleusercontent.com"
+            onSuccess={responseGoogle}
+            onFailure={responseGoogle} >
+          </GoogleLogin>
+          </div><br />
           <p className='text-center login_heading2'>New to Luxerange? <a href='/register'>Register</a></p>
         </MDBCol>
       </MDBRow>
