@@ -1,4 +1,5 @@
 const app = require('express')();
+const expressip = require('express-ip');
 const server = require('http').Server(app);
 const dotenv = require('dotenv');
 const cors = require('cors');
@@ -6,6 +7,7 @@ const bodyParser = require('body-parser');
 const connectDB = require('./DB/index');
 dotenv.config();
 require('./user/route')(app);
+app.use(expressip().getIpInfoMiddleware);
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
