@@ -6,8 +6,7 @@ module.exports= class UserController {
         //     throw Error("user data cannot be empty");
         // console.log("hello")
        
-        const response=await userService.signup(req,res);
-        return res.status(200).send({response});
+        await userService.signup(req,res);
         }
         catch(err){
             return res.status(400).send(err);  

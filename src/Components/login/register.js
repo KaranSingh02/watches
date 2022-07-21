@@ -1,8 +1,10 @@
-import {React, useEffect, useState} from 'react';
+import {React, useState} from 'react';
 import { MDBContainer, MDBRow, MDBCol, MDBInput } from "mdbreact";
 import '../../css/login.css';
+import {useDispatch} from 'react-redux';
 import Button from '@mui/material/Button';
 import GoogleLogin from 'react-google-login';
+import axios from 'axios';
 
 const Login = () => {
     const [username,setUsername] = useState();
@@ -10,23 +12,34 @@ const Login = () => {
     const [password,setPassword] = useState();
     const [password2,setPassword2] = useState();
 
-    const handleSubmit = () => {
+    const dispatch = useDispatch();
+
+    const handleSubmit = (e) => {
+      e.preventDefault();
       if(password !== password2){
         alert("Passwords dont match");
       }
       else{
         const data = {
-          'username': username,
+          'name': username,
           'email': email,
           'password': password
         }
-      }
-    };
+        console.log(data);
+        axios.post('/luxerange/signup', data)
+        .then(function (response) {
+          console.log("Status:- " + response.status);
+          dispatch({type: 'REGISTER', payload: response});
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+        }
+      };
 
     const responseGoogle = (response) => {
       // console.log(response);
       // var res = response.profileObj;
-      console.log("Hello");
       // debugger;
       // this.signup(response);
           };
@@ -39,7 +52,7 @@ const Login = () => {
           
         </MDBCol>
         <MDBCol md="6" className='login_right_col' >
-          <form className='login_form'>
+          <form className='login_form' onSubmit={handleSubmit}>
             <h4 className='text-center login_heading'>Luxerange</h4><br/><br/>
             <p className="h5 text-center mb-4 login_heading2">Welcome to Luxerange</p><br/>
             <div className="grey-text login_form_div">
@@ -81,7 +94,7 @@ const Login = () => {
               />
             </div>
             <div className="text-center">
-              <Button className='login_button' variant="contained">Register</Button>
+              <Button className='login_button' variant="contained" type='submit'>Register</Button>
             </div><br/>
           </form>
           <p className='text-center login_or'>------------ or ------------</p>

@@ -1,7 +1,7 @@
 const mongoose=require('mongoose')
 
 
-const user = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
   name:  String, // String is shorthand for {type: String}
   gender: String,
   contact_no:   String,
@@ -11,4 +11,4 @@ const user = new mongoose.Schema({
   image:String,
 
 });
-module.exports=mongoose.model('User',user)
+module.exports=mongoose.model('user',userSchema);
