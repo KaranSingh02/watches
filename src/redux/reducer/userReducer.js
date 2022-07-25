@@ -8,7 +8,8 @@ export const userReducer =  (state = myState, action) => {
     switch (action.type) {
 
         case 'REGISTER':
-            alert("Registered Successfully....")
+            alert("Registered Successfully....");
+            window.location.href = ('/login')
             return state;
 
         case 'USER_LOGIN':
