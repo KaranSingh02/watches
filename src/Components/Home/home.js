@@ -1,6 +1,6 @@
 import React from "react";
-import WatchCard from './watches';
 import Leftmenu from "./leftmenu";
+import Rightmenu from "./rightdata";
 import { MDBContainer, MDBRow, MDBCol } from "mdbreact";
 
 const Home = () => {
@@ -11,14 +11,8 @@ const Home = () => {
             <MDBCol className="leftmenu_home"  md="3">
                 <Leftmenu />
             </MDBCol>
-            <MDBCol  md="3" >
-                <WatchCard />
-            </MDBCol>
-            <MDBCol  md="3" >
-                <WatchCard />
-            </MDBCol>
-            <MDBCol  md="3" >
-                <WatchCard />
+            <MDBCol>
+                <Rightmenu />
             </MDBCol>
         </MDBRow>
     </MDBContainer>
